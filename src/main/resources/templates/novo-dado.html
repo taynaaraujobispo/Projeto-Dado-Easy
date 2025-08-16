@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Novo Dado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-900 flex items-center justify-center h-screen">
+    <div class="text-center bg-white p-8 rounded shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Criar Novo Dado</h1>
+        <form action="/novo-dado" method="post" class="space-y-4">
+            <label for="faces" class="block text-lg font-semibold">Número de faces:</label>
+            <input type="number" name="faces" id="faces" class="border rounded px-4 py-2" required min="1">
+            <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">
+                Criar Dado
+            </button>
+        </form>
+        <a href="/" class="mt-4 inline-block text-blue-500 hover:underline">Voltar</a>
+    </div>
+</body>
+</html>

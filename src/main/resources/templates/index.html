@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Dados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body class="bg-green-900  p-8 space-x-8">
+    
+    <!-- Dados -->
+    <div class="flex justify-center space-x-8">
+        <div class="text-center bg-gray-300 p-8 rounded shadow-md"  th:each="dado : ${dados}">
+            <h1 class="text-2xl font-bold mb-4">Dado</h1>
+            <h2 class="text-6xl font-bold" th:text="${dado.faces}"></h2>
+            <p>faces</p>
+            <form id="rollForm" action="/rolar" method="get">
+                <input type="hidden" name="faces" th:value="${dado.faces}">
+                <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">
+                    Rolar este dado
+                </button>
+            </form>
+        </div>
+        <div class="text-center bg-gray-700 p-8 rounded shadow-md border-4 border-dashed border-gray-500 flex items-center justify-center min-w-[200px]">
+            <a href="/novo-dado" class="block text-blue-500 hover:underline">
+                <div class="flex items-center justify-center h-full">
+                    <h2 class="text-6xl">+</h2>
+                </div>
+            </a>
+        </div>    
+    </div>
+
+    <!-- Mesa -->
+     <div class="flex justify-center mt-16" th:if="${resultado}">
+         <div class="bg-white size-48 rotate-in-center">
+                <h1 class="text-6xl font-bold text-center mt-16" th:text="${resultado}"></h1>
+         </div>
+     </div>
+</body>
+</html>
